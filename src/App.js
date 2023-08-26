@@ -5,6 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import About from './components/About.jsx';
 import Detail from './components/Detail.jsx';
+import Error from './components/Error.jsx';
 
 import { Route, Routes } from 'react-router-dom';
 
@@ -53,6 +54,7 @@ function App() {
          />
          <Route path="/About" element={<About />} />
          <Route path="/Detail/:id" element={<Detail />} />
+         <Route path="*" element={<Error />} />
          {/* <Card
             id={Rick.id}
             name={Rick.name}
