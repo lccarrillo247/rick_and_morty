@@ -2,11 +2,10 @@ import Card from './Card';
 
 export default function Cards({characters, onClose}) {
 
-console.log(characters)
-
    return <div>
       {characters.map((character) => (
       <Card
+      id={character.id}
       key={character.id}
       name={character.name}
       status={character.status}

@@ -3,6 +3,10 @@ import Nav from './components/Nav.jsx';
 import './App.css'; // Dejar importaciones de estilo de últimas
 import { useState } from 'react';
 import axios from 'axios';
+import About from './components/About.jsx';
+import Detail from './components/Detail.jsx';
+
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -39,8 +43,16 @@ function App() {
       <div className='App'>
          <Nav onSearch={onSearch}/>
          {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
-         <Cards characters={characters}
-         onClose={onClose} />
+         <Routes>
+         <Route path="/" element={
+         <Cards 
+         characters={characters}
+         onClose={onClose} 
+         />
+         }
+         />
+         <Route path="/About" element={<About />} />
+         <Route path="/Detail/:id" element={<Detail />} />
          {/* <Card
             id={Rick.id}
             name={Rick.name}
@@ -51,6 +63,7 @@ function App() {
             image={Rick.image}
             onClose={() => window.alert('Emulamos que se cierra la card')}
          /> */}
+         </Routes>
       </div>
    );
 }
