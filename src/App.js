@@ -1,17 +1,39 @@
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav.jsx';
 import './App.css'; // Dejar importaciones de estilo de últimas
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import About from './components/About.jsx';
 import Detail from './components/Detail.jsx';
 import Error from './components/Error.jsx';
+import Form from './components/Form.jsx';
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 function App() {
 
    const [characters, setCharacters] = useState([])
+
+   const [access, setAccess] = useState(false);
+   const navigate = useNavigate();
+
+   const EMAIL = 'lccarrillo247@gmail.com'
+   const PASSWORD = 'luchito123'
+
+   function login(userData) {
+      if (userData.email === EMAIL && userData.password === PASSWORD) {
+         setAccess(true);
+         navigate('/home');
+      }
+   };
+
+   function logout() {
+      setAccess(false);
+   };
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
 
    // const example = {
    //    id: 1,
@@ -40,12 +62,19 @@ function App() {
       setCharacters(characters.filter(char => char.id !== id))
    }
 
+   const location = useLocation();
+
    return (
       <div className='App'>
-         <Nav onSearch={onSearch}/>
+         {location.pathname === "/" ? null : <Nav
+         logout={logout}
+         onSearch={onSearch}/>}
          {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
          <Routes>
-         <Route path="/" element={
+         <Route exact path='/' element={<Form
+         login={login}
+         />} />
+         <Route path="/Home" element={
          <Cards 
          characters={characters}
          onClose={onClose} 
