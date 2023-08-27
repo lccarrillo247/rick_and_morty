@@ -48,7 +48,12 @@ function App() {
    //    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
    // };
 
+console.log(characters);
+
    function onSearch(id) {
+      if (characters.find((element) => element.id === id)) {
+         window.alert('El personaje ya existe')
+         } else {
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
@@ -57,6 +62,7 @@ function App() {
          }
       });
    }
+}
 
    const onClose = id => {
       setCharacters(characters.filter(char => char.id !== id))

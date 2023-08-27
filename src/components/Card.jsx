@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 
 export default function Card(props) {
 
-   console.log(props);
-
    const {name,status,species,origin,gender,image,onClose} = props;
    return (
       <div>
