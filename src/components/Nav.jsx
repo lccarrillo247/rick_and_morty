@@ -19,6 +19,9 @@ export default function Nav(props) {
         <NavLink to="/Home">
             <button>Home</button>
         </NavLink>
+        <NavLink to="/favorites">
+            <button>Favorites</button>
+        </NavLink>
         <button onClick={() => props.logout()}>Log out</button>
         </>
         )
