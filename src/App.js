@@ -7,6 +7,9 @@ import About from './components/About.jsx';
 import Detail from './components/Detail.jsx';
 import Error from './components/Error.jsx';
 import Form from './components/Form.jsx';
+import Favorites from './components/favorites.jsx';
+import { removeFav } from './redux/actions/actions.js';
+import { useDispatch } from 'react-redux';
 
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
@@ -16,9 +19,10 @@ function App() {
 
    const [access, setAccess] = useState(false);
    const navigate = useNavigate();
+   const dispatch = useDispatch();
 
-   const EMAIL = 'lccarrillo247@gmail.com'
-   const PASSWORD = 'luchito123'
+   const EMAIL = 'a@b.com'
+   const PASSWORD = 'abc123'
 
    function login(userData) {
       if (userData.email === EMAIL && userData.password === PASSWORD) {
@@ -48,8 +52,6 @@ function App() {
    //    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
    // };
 
-console.log(characters);
-
    function onSearch(id) {
       if (characters.find((element) => element.id === id)) {
          window.alert('El personaje ya existe')
@@ -66,7 +68,8 @@ console.log(characters);
 
    const onClose = id => {
       setCharacters(characters.filter(char => char.id !== id))
-   }
+      dispatch(removeFav(id))
+   };
 
    const location = useLocation();
 
@@ -90,6 +93,9 @@ console.log(characters);
          <Route path="/About" element={<About />} />
          <Route path="/Detail/:id" element={<Detail />} />
          <Route path="*" element={<Error />} />
+         <Route path="/favorites" element={<Favorites
+
+          />} />
          {/* <Card
             id={Rick.id}
             name={Rick.name}

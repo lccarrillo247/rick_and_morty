@@ -9,7 +9,7 @@ export default function validation(userData) {
         errors.email = 'El email debe incluir @ y .'
     }
     if (!userData.email) {
-        errors.email = 'Ingresa tu email bb'
+        errors.email = 'Ingresa tu email'
     }
     if (userData.email.length > 35) {  // Por qué hps aquí no se usa .value?
         errors.email = 'Tu email no puede tener más de 35 caracteres'
