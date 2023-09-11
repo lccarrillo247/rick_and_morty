@@ -7,19 +7,23 @@ function rootReducer (state = initialState, action) {
     let sorted;
 
     switch (action.type){
-        case ADD_FAV:   
-        return {
-            ...state,
-            myFavorites: [...state.myFavorites, action.payload],
-            allCharacters: [...state.myFavorites, action.payload]
-        };
-        case REMOVE_FAV:
-            return {
-                ...state,
-                myFavorites: state.myFavorites.filter(
-                    character => character.id !== Number(action.payload)
-                    ),
-            }
+        // case ADD_FAV:   
+        // return {
+        //     ...state,
+        //     myFavorites: [...state.myFavorites, action.payload],
+        //     allCharacters: [...state.myFavorites, action.payload]
+        // };
+        case 'ADD_FAV':
+      return { ...state, myFavorites: action.payload, allCharacters: action.payload };
+        // case REMOVE_FAV:
+        //     return {
+        //         ...state,
+        //         myFavorites: state.myFavorites.filter(
+        //             character => character.id !== Number(action.payload)
+        //             ),
+        //     }
+        case 'REMOVE_FAV':
+      return { ...state, myFavorites: action.payload };
             case FILTER:
                 return {
                     ...state,

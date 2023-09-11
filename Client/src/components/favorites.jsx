@@ -5,8 +5,6 @@ import { filterCards, orderCards, reset } from "../redux/actions/actions";
 
 export default function Favorites (){
 
-// 1:06:26
-
 const dispatch = useDispatch()
 const myFavorites = useSelector((state) => state.myFavorites);
 

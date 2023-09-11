@@ -25,11 +25,21 @@ function App() {
    const PASSWORD = 'abc123'
 
    function login(userData) {
-      if (userData.email === EMAIL && userData.password === PASSWORD) {
-         setAccess(true);
-         navigate('/home');
-      }
-   };
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
+   }
+
+   // function login(userData) {
+   //    if (userData.email === EMAIL && userData.password === PASSWORD) {
+   //       setAccess(true);
+   //       navigate('/home');
+   //    }
+   // };
 
    function logout() {
       setAccess(false);
@@ -51,6 +61,8 @@ function App() {
    //    },
    //    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
    // };
+
+   // 1:11
 
    function onSearch(id) {
       if (characters.find((element) => element.id === id)) {

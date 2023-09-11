@@ -12,13 +12,13 @@ export function Card(props) {
 
    useEffect(() => {
       myFavorites.forEach((fav) => {
-         if (fav.id === id) {
+         if (fav.id === Number(id)) {
             setIsFav(true);
          }
       });
    }, [myFavorites]);
    
-   function handleFavorite() {
+   function handleFavorite(character) {
       if (isFav) {
          setIsFav(false)
          removeFav(character.id)
@@ -30,7 +30,7 @@ export function Card(props) {
 
    return (
       <div>
-         {isFav ? <button onClick={() => handleFavorite(character.id)}>❤️</button> : <button onClick={() => handleFavorite(character)}>🤍</button>}
+         {isFav ? <button onClick={() => handleFavorite(character)}>❤️</button> : <button onClick={() => handleFavorite(character)}>🤍</button>}
           <button onClick={onClose}>X</button>
          <Link to={`/Detail/${props.id}`} >
          <h2>Name: {name}</h2>
