@@ -1,22 +1,47 @@
 const axios = require('axios');
 const URL = "https://rickandmortyapi.com/api/character/";
 
-function getCharById(req, res) {
+async function getCharById(req, res) {
 
+try {
     const {id} = req.params
-    axios.get(`https://rickandmortyapi.com/api/character/${id}`).then((response) => {
-        const {id, name, gender, species, origin, image, status} = response.data;
+    const {data} = await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
+    const character = {
+        id: data.id,
+        status: data.status,
+        name: data.name,
+        species: data.species,
+        origin: data.origin?.name, // así no hay undefined
+        image: data.image,
+        gender: data.gender,
+    };
 
-        if (name) {
-        res.status(200).json({id, name, gender, species, origin, image, status})
+        if (character.name) {
+        res.status(200).json(character)
         } else {
             res.status(404).send("Not found-Coleguilas");
         }
-    }).catch((error) => {
-        res.status(500).json({message: error.message});
-    })
 
+    } catch (error) {
+        
+    res.status(500).json({message: error.message});
+
+    }
 }
+//     const {id} = req.params
+//     axios.get(`https://rickandmortyapi.com/api/character/${id}`).then((response) => {
+//         const {id, name, gender, species, origin, image, status} = response.data;
+
+//         if (name) {
+//         res.status(200).json({id, name, gender, species, origin, image, status})
+//         } else {
+//             res.status(404).send("Not found-Coleguilas");
+//         }
+//     }).catch((error) => {
+//         res.status(500).json({message: error.message});
+//     })
+
+// }
 
 
 // function getCharById(res, id) {
