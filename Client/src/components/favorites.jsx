@@ -1,5 +1,6 @@
 import { connect, useSelector, useDispatch } from "react-redux";
 import Card from "./Card";
+import Cards from "./Cards";
 import { filterCards, orderCards, reset } from "../redux/actions/actions";
 
 
@@ -44,14 +45,18 @@ function resetHandler(event) {
             <button
             onClick={resetHandler}
             >RESET</button>
-            {myFavorites.map(character=><Card
+            {/* {myFavorites.map(character=><Card
             name={character.name}
             species={character.species}
             gender={character.gender}
             image={character.image}
             key={character.id}
             // onClose={character.onClose}
-            />)}
+            />)} */}
+            <Cards
+            characters={myFavorites}
+            />
+
         </div>
     )
 };

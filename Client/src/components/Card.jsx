@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addFav, removeFav } from '../redux/actions/actions';
 import { useState, useEffect } from 'react';
@@ -28,10 +28,12 @@ export function Card(props) {
       }
       }
 
+      const location = useLocation();
+
    return (
       <div>
          {isFav ? <button onClick={() => handleFavorite(character)}>❤️</button> : <button onClick={() => handleFavorite(character)}>🤍</button>}
-          <button onClick={onClose}>X</button>
+          {location.pathname !== "/favorites" && <button onClick={onClose}>X</button>}
          <Link to={`/Detail/${props.id}`} >
          <h2>Name: {name}</h2>
          </Link>
