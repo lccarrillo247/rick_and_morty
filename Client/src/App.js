@@ -1,6 +1,5 @@
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav.jsx';
-import './App.css'; // Dejar importaciones de estilo de últimas
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import About from './components/About.jsx';
@@ -10,8 +9,9 @@ import Form from './components/Form.jsx';
 import Favorites from './components/favorites.jsx';
 import { removeFav } from './redux/actions/actions.js';
 import { useDispatch } from 'react-redux';
-
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+
+import styles from './App.module.css'; // Dejar importaciones de estilo de últimas - min 54
 
 function App() {
 

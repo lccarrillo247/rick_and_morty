@@ -1,0 +1,19 @@
+.formBackground {
+    position: absolute;
+    background-image: url('C:\Users\lccar\OneDrive\Desktop\HENRY\Bootcamp\Integrador\rick_and_morty\Client\public\loginBackground.jpeg');
+    background-size: cover;
+    height:100%;
+    width: 100%;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: space-between;
+    position:absolute;
+    background-color: rgb(44, 44, 44);
+    height: 80px;
+    width: 500px;
+    margin-top: -5px;
+    margin-left: -5px;
+    border-radius: 10px;
+}

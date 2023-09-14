@@ -2,6 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addFav, removeFav } from '../redux/actions/actions';
 import { useState, useEffect } from 'react';
+import styles from './Card.module.css';
+
 
 export function Card(props) {
 
@@ -31,17 +33,23 @@ export function Card(props) {
       const location = useLocation();
 
    return (
-      <div>
+      <div className={styles.container}>
+         <div className={styles.buttonContainer}>
          {isFav ? <button onClick={() => handleFavorite(character)}>❤️</button> : <button onClick={() => handleFavorite(character)}>🤍</button>}
-          {location.pathname !== "/favorites" && <button onClick={onClose}>X</button>}
+          {location.pathname !== "/favorites" && <button className={styles.xButton} onClick={onClose}>X</button>}
+         </div>
+          <img className={styles.image}src={image} alt={name} />
+         <div className={styles.nameContainer}>            
          <Link to={`/Detail/${props.id}`} >
-         <h2>Name: {name}</h2>
+         <h2>{name}</h2>
          </Link>
+         </div>
+         <div className={styles.dataContainer}>
          {/* <h2>Status: {status}</h2> */}
-         <h2>Species: {species}</h2>
+         <h2>{species}</h2>
          {/* <h2>Origin: {origin}</h2> */}
-         <h2>Gender: {gender}</h2>
-         <img src={image} alt={name} />
+         <h2>{gender}</h2>
+         </div>
       </div>
    );
 }

@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState } from "react";
 import validation from "./validation";
+import styles from "./Form.module.css";
 
 export default function Form(props) {
 
@@ -33,10 +34,12 @@ export default function Form(props) {
     };
 
     return (
+        <div className={styles.formBackground}>            
+        <div className={styles.formContainer}>            
         <form
         onSubmit={handleSubmit}
         >
-            <label>EMAIL</label>
+            {/* <label>EMAIL</label> */}
             <input
             type="text"
             name="email"
@@ -45,7 +48,7 @@ export default function Form(props) {
             onChange={handleChange}
             />
             {errors.email && <p>{errors.email}</p>}
-            <label>PASSWORD</label>
+            {/* <label>PASSWORD</label> */}
             <input
             type="password"
             name="password"
@@ -56,5 +59,7 @@ export default function Form(props) {
             {errors.password && <p>{errors.password}</p>}
             <button type='submit'>SUBMIT</button>
         </form>
+            </div>
+            </div>
     )
 }

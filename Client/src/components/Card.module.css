@@ -1,0 +1,36 @@
+.container {
+    border: 1px solid grey;
+    background-color: lightgray;
+    width: 280px;
+    border-radius: 10px;
+    margin: 20px 10px 20px 10px;
+}
+
+.image {
+    width: 100%;
+}
+
+.buttonContainer {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.xButton {
+    color: white;
+    font-weight: bold;
+    border: none;
+    background-color: crimson;
+    border-radius: 4px;
+    width: 30px;
+}
+
+.nameContainer {
+
+}
+
+.dataContainer {
+    display: flex;
+    justify-content: space-between;
+
+}
