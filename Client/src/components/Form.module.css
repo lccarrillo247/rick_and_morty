@@ -36,4 +36,10 @@
     height: 20px;
     width: 70px;
     border-radius: 10px;
+    box-shadow: fuchsia;
+}
+
+.formError {
+    color: red;
+    font-weight: bold;
 }

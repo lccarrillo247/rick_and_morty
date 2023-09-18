@@ -41,24 +41,26 @@ export default function Form(props) {
         >
             <label className={styles.formLabel}
             >email</label>
-            <input
+            <input className={styles.formInput}
             type="text"
             name="email"
             placeholder="Email..."
             value={userData.email}
             onChange={handleChange}
             />
-            {errors.email && <p>{errors.email}</p>}
+            {errors.email && <p clasName={styles.formError}
+            >{errors.email}</p>}
             <label className={styles.formLabel}
             >pasword</label>
-            <input
+            <input className={styles.formInput}
             type="password"
             name="password"
             placeholder="Password..."
             value={userData.password}
             onChange={handleChange}
             />
-            {errors.password && <p>{errors.password}</p>}
+            {errors.password && <p clasName={styles.formError}
+            >{errors.password}</p>}
             <button type='submit'>SUBMIT</button>
         </form>
             </div>

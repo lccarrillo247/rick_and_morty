@@ -1,5 +1,6 @@
 import SearchBar from "./SearchBar";
 import { NavLink } from 'react-router-dom';
+import styles from "./Nav.module.css";
 
 export default function Nav(props) {
 
@@ -8,7 +9,8 @@ export default function Nav(props) {
     }
 
     return (
-        <>
+        <div className={styles.navContainer}
+        >
         <SearchBar onSearch={props.onSearch} />
         <button
         onClick={() => props.onSearch(aleatorio(826))}
@@ -23,6 +25,6 @@ export default function Nav(props) {
             <button>Favorites</button>
         </NavLink>
         <button onClick={() => props.logout()}>Log out</button>
-        </>
+        </div>
         )
 }
