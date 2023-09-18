@@ -2,4 +2,5 @@
     display: flex;
     justify-content: space-between;
     background-color: rgb(130, 146, 218);
+    background-size: cover;
 }

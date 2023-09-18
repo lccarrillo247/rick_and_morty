@@ -2,18 +2,38 @@
     position: absolute;
     background-image: url('C:\Users\lccar\OneDrive\Desktop\HENRY\Bootcamp\Integrador\rick_and_morty\Client\public\loginBackground.jpeg');
     background-size: cover;
-    height:100%;
-    width: 100%;
+    height:643px;
+    width: 950px;
+    margin-left: -50px;
 }
 
 .formContainer {
-    display: flex;
-    justify-content: space-between;
     position:absolute;
     background-color: rgb(44, 44, 44);
-    height: 80px;
-    width: 500px;
-    margin-top: -5px;
-    margin-left: -5px;
+    height: 100%;
+    width: 466px;
+    margin-left: 950px;
+}
+
+.formGrid {
+    display: grid;
+    grid-auto-rows: auto auto auto auto auto;
+    width: 70%;
+    align-content: center;
+    
+}
+
+.formLabel {
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    align-content: center;
+    margin-left: 50px;
+    margin-top: 70px;
+}
+
+.formInput {
+    height: 20px;
+    width: 70px;
     border-radius: 10px;
 }

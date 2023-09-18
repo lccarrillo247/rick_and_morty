@@ -4,6 +4,7 @@
     width: 280px;
     border-radius: 10px;
     margin: 20px 10px 20px 10px;
+    float: left;
 }
 
 .image {

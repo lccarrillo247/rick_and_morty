@@ -36,10 +36,11 @@ export default function Form(props) {
     return (
         <div className={styles.formBackground}>            
         <div className={styles.formContainer}>            
-        <form
+        <form className={styles.formGrid}
         onSubmit={handleSubmit}
         >
-            {/* <label>EMAIL</label> */}
+            <label className={styles.formLabel}
+            >email</label>
             <input
             type="text"
             name="email"
@@ -48,7 +49,8 @@ export default function Form(props) {
             onChange={handleChange}
             />
             {errors.email && <p>{errors.email}</p>}
-            {/* <label>PASSWORD</label> */}
+            <label className={styles.formLabel}
+            >pasword</label>
             <input
             type="password"
             name="password"
